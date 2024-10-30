@@ -1,0 +1,6 @@
+//JSON-databevarande: Alla böcker och författare ska lagras i en JSON-fil med namnet LibraryData.json.
+//Implementera funktionalitet för att ladda data från JSON-filen när applikationen startar och spara data
+//tillbaka till filen efter eventuella ändringar (såsom attlägga till, uppdatera eller ta bort böcker eller författare).
+{
+
+}
