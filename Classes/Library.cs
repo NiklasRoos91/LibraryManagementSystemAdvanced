@@ -12,25 +12,6 @@ namespace LibraryManagementSystemAdvanced.Classes
         public List<Book> bookList { get; set; } = new List<Book>();
         public List<Author> authorList { get; set; } = new List<Author>();
 
-        public Library()
-        {
-            // Lägg till några författare
-            var author1 = new Author(1, "Astrid Lindgren", "Sverige");
-            var author2 = new Author(2, "J.K. Rowling", "Storbritannien");
-            var author3 = new Author(3, "George R.R. Martin", "USA");
-
-            authorList.Add(author1);
-            authorList.Add(author2);
-            authorList.Add(author3);
-
-            // Lägg till några böcker
-            bookList.Add(new Book(1, "Pippi Långstrump", "Barnbok", 1945, 1, author1));
-            bookList.Add(new Book(2, "Harry Potter och de vises sten", "Fantasy", 1997, 2, author2));
-            bookList.Add(new Book(3, "A Game of Thrones", "Fantasy", 1996, 3, author3));
-            bookList.Add(new Book(4, "Bröderna Lejonhjärta", "Barnbok", 1973, 4, author1));
-            bookList.Add(new Book(5, "Harry Potter och Hemligheternas kammare", "Fantasy", 1998, 5, author2));
-        }
-
         public void AddBook()
         {
             Console.Write("Ange boktitel: ");
@@ -307,5 +288,12 @@ namespace LibraryManagementSystemAdvanced.Classes
                 return;
             }
         }
+        //Sök och filtrera böcker
+
+        public void SearchForABook()
+        {
+            //Book bookToSearchAfter = AllBooks.Where(book => book.Title == ”Pippi Låbgstrump”).FirstOrDeafult()!;
+        }
     }
+
 }

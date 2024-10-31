@@ -11,7 +11,11 @@ namespace LibraryManagementSystemAdvanced.Classes
     {
         [JsonPropertyName("books")]
 
-        public List<Book> AllBooksFromDB { get; set; }
+        public List<Book> AllBooksFromJSON { get; set; }
+
+        [JsonPropertyName("authors")]
+
+        public List<Author> AllAuthorsFromJSON { get; set; }
 
     }
 }

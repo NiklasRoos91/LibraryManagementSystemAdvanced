@@ -1,6 +1,56 @@
-//JSON-databevarande: Alla böcker och författare ska lagras i en JSON-fil med namnet LibraryData.json.
-//Implementera funktionalitet för att ladda data från JSON-filen när applikationen startar och spara data
-//tillbaka till filen efter eventuella ändringar (såsom attlägga till, uppdatera eller ta bort böcker eller författare).
+//JSON-databevarande: Alla bï¿½cker och fï¿½rfattare ska lagras i en JSON-fil med namnet LibraryData.json.
+//Implementera funktionalitet fï¿½r att ladda data frï¿½n JSON-filen nï¿½r applikationen startar och spara data
+//tillbaka till filen efter eventuella ï¿½ndringar (sï¿½som attlï¿½gga till, uppdatera eller ta bort bï¿½cker eller fï¿½rfattare).
 {
-
+  "authors": [
+    {
+      "Name": "Astrid Lindgren",
+      "Country": "Sverige"
+    },
+    {
+      "Name": "J.K. Rowling",
+      "Country": "Storbritannien"
+    },
+    {
+      "Name": "George R.R. Martin",
+      "Country": "USA"
+    }
+  ],
+  "books": [
+    {
+      "Titel": "Pippi LÃ¥ngstrump",
+      "Genre": "Barnbok",
+      "PublicationYear": 1945,
+      "ID": 1,
+      "ISBN": 100
+    },
+    {
+      "Titel": "Harry Potter och de vises sten",
+      "Genre": "Fantasy",
+      "PublicationYear": 1997,
+      "ID": 2,
+      "ISBN": 102
+    },
+    {
+      "Titel": "A Game of Thrones",
+      "Genre": "Fantasy",
+      "PublicationYear": 1996,
+      "ID": 3,
+      "ISBN": 103
+    },
+    {
+      "Titel": "BrÃ¶derna LejonhjÃ¤rta",
+      "Genre": "Barnbok",
+      "PublicationYear": 1973,
+      "ID": 4,
+      "ISBN": 104
+    },
+    {
+      "Titel": "Harry Potter och Hemligheternas kammare",
+      "Genre": "Fantasy",
+      "PublicationYear": 1998,
+      "ID": 5,
+      "ISBN": 105
+    }
+  ]
 }
