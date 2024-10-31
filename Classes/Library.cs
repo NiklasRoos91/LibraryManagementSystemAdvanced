@@ -35,7 +35,6 @@ namespace LibraryManagementSystemAdvanced.Classes
             bookList.Add(new Book(3, "A Game of Thrones", "Fantasy", 1996, 3, author3));
             bookList.Add(new Book(4, "Bröderna Lejonhjärta", "Barnbok", 1973, 4, author1));
             bookList.Add(new Book(5, "Harry Potter och Hemligheternas kammare", "Fantasy", 1998, 5, author2));
-
         }
 
         public void AddBook()
@@ -114,12 +113,58 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         public void RemoveBook()
         {
+            Console.Write("Skriv vilken bok du vill ta bort: ");
+            string bookToRemove = Console.ReadLine()!;
 
+            // Skapa en lista för böcker som ska tas bort
+            List<Book> booksToRemove = new List<Book>();
+
+            foreach (Book book in bookList)
+            {
+                if (book.Title.Equals(bookToRemove, StringComparison.OrdinalIgnoreCase))
+                {
+                    booksToRemove.Add(book);
+                }
+            }
+
+            foreach (Book book in booksToRemove)
+            {
+                bookList.Remove(book);
+                Console.WriteLine($"{bookToRemove} är bortagen från listan.");                
+            }
+
+            if (booksToRemove.Count == 0)
+            {
+                Console.WriteLine($"{bookToRemove} finns inte i listan.");
+            }
         }
 
         public void RemoveAuthor()
         {
+            Console.Write("Skriv vilken författare du vill ta bort: ");
+            string authorToRemove = Console.ReadLine()!;
 
+            // Skapa en lista för böcker som ska tas bort
+            List<Author> authorsToRemove = new List<Author>();
+
+            foreach (Author author in authorList)
+            {
+                if (author.Name.Equals(authorToRemove, StringComparison.OrdinalIgnoreCase))
+                {
+                    authorsToRemove.Add(author);
+                }
+            }
+
+            foreach (Author author in authorsToRemove)
+            {
+                authorList.Remove(author);
+                Console.WriteLine($"{authorToRemove} är bortagen från listan.");
+            }
+
+            if (authorsToRemove.Count == 0)
+            {
+                Console.WriteLine($"{authorToRemove} finns inte i listan.");
+            }
         }
 
         public void ShowListOfAllBooks()
@@ -134,7 +179,6 @@ namespace LibraryManagementSystemAdvanced.Classes
             else
             {
                 Console.WriteLine("Det finns inga böcker att visa.");
-
             }
         }
 
@@ -149,9 +193,7 @@ namespace LibraryManagementSystemAdvanced.Classes
             }
             else
             {
-                Console.WriteLine("Det finns inga författare att visa."
-
-);
+                Console.WriteLine("Det finns inga författare att visa.");
                 return;
             }
         }

@@ -23,6 +23,7 @@ namespace LibraryManagementSystemAdvanced.Classes
             {
                 Console.WriteLine("Bibliotek");
                 Console.WriteLine("---------");
+                Console.WriteLine("Vänligen välj vilken lista du vill visa:");
                 Console.WriteLine("\n1. Lägg till ny bok");
                 Console.WriteLine("2. Lägg till ny författare");
                 Console.WriteLine("3. Uppdatera bokdetaljer");
@@ -32,7 +33,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                 Console.WriteLine("7. Lista alla böcker och författare");
                 Console.WriteLine("8. Sök och filtrera böcker");
                 Console.WriteLine("9. Avsluta och spara data");
-                Console.WriteLine("Välj ett alternativ genom att trycka på en siffra mellan 1-9\r\n");
+                Console.Write("Ange ditt val (1-9): ");
 
                 string chooseMenuOption = Console.ReadLine()!;
 
@@ -65,12 +66,16 @@ namespace LibraryManagementSystemAdvanced.Classes
                         Library.AddAuthor();
                         break;
                     case "3":
+                        Library.UpdateBook();
                         break;
                     case "4":
+                        Library.UpdateAuthor();
                         break;
                     case "5":
+                        Library.RemoveBook();
                         break;
                     case "6":
+                        Library.RemoveAuthor();
                         break;
                     case "7":
                         MenuToChooseShowBookOrAuthor();
@@ -93,9 +98,13 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         public void MenuToChooseShowBookOrAuthor()
         {
-            Console.WriteLine("Vilken vill du se?");
+            Console.WriteLine("Vänligen välj vilken lista du vill visa:");
             Console.WriteLine("1. Lista med böcker");
             Console.WriteLine("2. Lista med författare");
+            Console.WriteLine("3. Återgå till huvudmenyn");
+            Console.Write("Ange ditt val (1-3): ");
+
+
             string chooseShowBookOrAuthor = Console.ReadLine()!;
 
             bool validOptionSelected;
@@ -112,8 +121,11 @@ namespace LibraryManagementSystemAdvanced.Classes
                     case "2":
                         Library.ShowListOfAllAuthors();
                         break;
+                    case "3":
+                        Console.WriteLine("Återgår till huvudmenyn...");
+                        return;
                     default:
-                        Console.WriteLine("Inte ett giltigt alternativ. Välj en siffra mellan 1-2");
+                        Console.WriteLine("Inte ett giltigt alternativ. Välj en siffra mellan 1-3");
                         chooseShowBookOrAuthor = Console.ReadLine()!;
                         validOptionSelected = false;
                         break;
