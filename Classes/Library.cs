@@ -9,12 +9,6 @@ namespace LibraryManagementSystemAdvanced.Classes
 {
     public class Library
     {
-        //// Bibliotek: En central klass som hanterar en samling av böcker och författare. Ska inkludera metoder för:
-        ////Att lägga till en ny bok och författare.
-        //Att uppdatera befintliga bok- och författardetaljer.
-        //Att ta bort en bok eller författare.
-        //Att lista alla böcker och författare.
-
         public List<Book> bookList { get; set; } = new List<Book>();
         public List<Author> authorList { get; set; } = new List<Author>();
 
@@ -103,12 +97,129 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         public void UpdateBook()
         {
+            Console.Write("Ange titeln på bok du vill uppdatera: ");
+            string bookToUpdate = Console.ReadLine()!;
 
+            bool bookFound = false;
+
+            foreach (Book book in bookList)
+            {
+                if (book.Title.Equals(bookToUpdate, StringComparison.OrdinalIgnoreCase))
+                {
+                    bookFound = true;
+
+                    // Visa alternativ för vad som ska uppdateras
+                    Console.WriteLine("Vad vill du uppdatera?");
+                    Console.WriteLine("1. Titel");
+                    Console.WriteLine("2. Genre");
+                    Console.WriteLine("3. Publiceringsår");
+                    Console.WriteLine("4. ISBN");
+                    Console.WriteLine("5. Återgå till huvudmenyn");
+                    Console.Write("Ange ditt val (1-5): ");
+
+
+                    string option = Console.ReadLine()!;
+
+                    switch (option)
+                    {
+                        case "1":
+                            Console.Write("Ange ny titel: ");
+                            book.Title = Console.ReadLine()!;
+                            Console.WriteLine("Boken har uppdaterats.");
+                            break;
+                        case "2":
+                            Console.Write("Ange ny genre: ");
+                            book.Genre = Console.ReadLine()!;
+                            Console.WriteLine("Boken har uppdaterats.");
+                            break;
+                        case "3":
+                            Console.Write("Ange nytt publiceringsår: ");
+                            if (int.TryParse(Console.ReadLine(), out int newYear))
+                            {
+                                book.PublicationYear = newYear;
+                                Console.WriteLine("Boken har uppdaterats.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Ogiltigt år. Uppdatering misslyckades.");
+                            }
+                            break;
+                        case "4":
+                            Console.Write("Ange nytt ISBN: ");
+                            if (int.TryParse(Console.ReadLine(), out int newISBN))
+                            {
+                                book.ISBN = newISBN;
+                                Console.WriteLine("Boken har uppdaterats.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Ogiltigt ISBN. Uppdatering misslyckades.");
+                            }
+                            break;
+                            case "5":
+                            Console.WriteLine("Återgår till huvudmenyn...");
+                            return;
+                        default:
+                            Console.WriteLine("Ogiltigt val.");
+                            break;
+                    }
+                    break;
+                }
+            }
+            if (!bookFound)
+            {
+                Console.WriteLine($"Boken '{bookToUpdate}' finns inte i listan.");
+            }
         }
 
         public void UpdateAuthor()
         {
+            Console.Write("Ange namnet på författare du vill uppdatera: ");
+            string authorToUpdate = Console.ReadLine();
+            
+            bool authorFound = false;
 
+            foreach (Author author in authorList)
+            {
+                if ( author.Name.Equals(authorToUpdate, StringComparison.OrdinalIgnoreCase))
+                {
+                    authorFound = true;
+
+                    // Visa alternativ för vad som ska uppdateras
+                    Console.WriteLine("Vad vill du uppdatera?");
+                    Console.WriteLine("1. Namn");
+                    Console.WriteLine("2. Land");
+                    Console.WriteLine("3. Återgå till huvudmenyn");
+                    Console.Write("Ange ditt val (1-3): ");
+
+                    string option = Console.ReadLine()!;
+
+                    switch (option)
+                    {
+                        case "1":
+                            Console.Write("Ange nytt namn: ");
+                            author.Name = Console.ReadLine()!;
+                            Console.WriteLine("Författaren har uppdaterats.");
+                            break;
+                        case "2":
+                            Console.Write("Ange nytt land: ");
+                            author.Country = Console.ReadLine()!;
+                            Console.WriteLine("Författaren har uppdaterats.");
+                            break;
+                        case "3":
+                            Console.WriteLine("Återgår till huvudmenyn...");
+                            return;
+                        default:
+                            Console.WriteLine("Ogiltigt val.");
+                            break;
+                    }
+                    break;
+                }
+            }
+            if(!authorFound)
+            {
+                Console.WriteLine($"Författaren '{authorToUpdate}' finns inte i listan.");
+            }
         }
 
         public void RemoveBook()
@@ -166,7 +277,6 @@ namespace LibraryManagementSystemAdvanced.Classes
                 Console.WriteLine($"{authorToRemove} finns inte i listan.");
             }
         }
-
         public void ShowListOfAllBooks()
         {
             if (bookList.Count > 0)

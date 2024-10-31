@@ -37,26 +37,6 @@ namespace LibraryManagementSystemAdvanced.Classes
 
                 string chooseMenuOption = Console.ReadLine()!;
 
-                if (chooseMenuOption == "9")
-                {
-                    Console.WriteLine("Avslutar och sparar data...");
-
-                    runProgram = false;
-                }
-                else
-                {
-                    MenuOptionManager(chooseMenuOption);
-                }
-            }
-        }
-        public void MenuOptionManager(string chooseMenuOption)
-        {
-            bool validOptionSelected;
-
-            do
-            {
-                validOptionSelected = true;
-
                 switch (chooseMenuOption)
                 {
                     case "1":
@@ -82,19 +62,19 @@ namespace LibraryManagementSystemAdvanced.Classes
                         break;
                     case "8":
                         break;
+                    case "9":
+                        Console.WriteLine("Avslutar och sparar data...");
+                        return;
                     default:
-                        Console.WriteLine("Inte ett giltigt alternativ. Välj en siffra mellan 1-8");
+                        Console.WriteLine("Inte ett giltigt alternativ. Välj en siffra mellan 1-9");
                         chooseMenuOption = Console.ReadLine()!;
-                        validOptionSelected = false;
                         break;
                 }
-
-            } while (!validOptionSelected);
-
-            Console.WriteLine("Tryck på valfri tangent för att fortsätta...");
-            Console.ReadKey();
-            Console.Clear();
-        }
+                Console.WriteLine("Tryck på valfri tangent för att fortsätta...");
+                Console.ReadKey();
+                Console.Clear();
+            }
+        } 
 
         public void MenuToChooseShowBookOrAuthor()
         {
