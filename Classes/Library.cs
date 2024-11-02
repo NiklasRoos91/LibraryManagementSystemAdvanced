@@ -308,8 +308,15 @@ namespace LibraryManagementSystemAdvanced.Classes
         }
 
         public void SortBookByPublicationYear()
-        {
-            //OrderByDescending
+        {          
+            List<Book> OrderByPublicationYear = bookList.OrderByDescending(book => book.PublicationYear).Reverse().ToList();
+
+            Console.WriteLine("Böcker sorterade efter publiceringsår (fallande ordning):");
+            
+            foreach (Book book in OrderByPublicationYear)
+            {
+                Console.WriteLine($"Boktitel: {book.Title}, Publicerings år: {book.PublicationYear}");
+            }
         }
     }
 
