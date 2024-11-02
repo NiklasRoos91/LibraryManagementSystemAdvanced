@@ -9,8 +9,20 @@ namespace LibraryManagementSystemAdvanced.Classes
 {
     public class Library
     {
+        private Database database;
+
         public List<Book> bookList { get; set; } = new List<Book>();
         public List<Author> authorList { get; set; } = new List<Author>();
+
+        public Library()
+        {
+            database = new Database();
+            database.LoadDataFromFile();
+
+            // Koppla inlästa böcker och författare till listorna i Library
+            bookList = database.AllBooksFromJSON;
+            authorList = database.AllAuthorsFromJSON;
+        }
 
         public void AddBook()
         {
@@ -156,7 +168,7 @@ namespace LibraryManagementSystemAdvanced.Classes
         public void UpdateAuthor()
         {
             Console.Write("Ange namnet på författare du vill uppdatera: ");
-            string authorToUpdate = Console.ReadLine();
+            string authorToUpdate = Console.ReadLine()!;
             
             bool authorFound = false;
 
@@ -264,7 +276,7 @@ namespace LibraryManagementSystemAdvanced.Classes
             {
                 foreach (Book book in bookList)
                 {
-                    Console.WriteLine($"Boktitel: {book.Title}, Publicerings år: {book.PublicationYear}, Genre: {book.Genre}");
+                    Console.WriteLine($"Boktitel: {book.Title}, Författare: {book.Author.Name}, Publicerings år: {book.PublicationYear}, Genre: {book.Genre}");
                 }
             }
             else
@@ -290,9 +302,14 @@ namespace LibraryManagementSystemAdvanced.Classes
         }
         //Sök och filtrera böcker
 
-        public void SearchForABook()
+        public void FilterBookByAuthor()
         {
             //Book bookToSearchAfter = AllBooks.Where(book => book.Title == ”Pippi Låbgstrump”).FirstOrDeafult()!;
+        }
+
+        public void SortBookByPublicationYear()
+        {
+            //OrderByDescending
         }
     }
 

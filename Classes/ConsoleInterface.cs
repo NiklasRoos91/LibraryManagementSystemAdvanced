@@ -61,6 +61,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                         MenuToChooseShowBookOrAuthor();
                         break;
                     case "8":
+                        MenuToSortOrFilter();
                         break;
                     case "9":
                         Console.WriteLine("Avslutar och sparar data...");
@@ -74,7 +75,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                 Console.ReadKey();
                 Console.Clear();
             }
-        } 
+        }
 
         public void MenuToChooseShowBookOrAuthor()
         {
@@ -111,6 +112,43 @@ namespace LibraryManagementSystemAdvanced.Classes
                         break;
                 }
             } while (!validOptionSelected);
+        }
+
+        private void MenuToSortOrFilter()
+        {
+            Console.WriteLine("Vänligen välj vilken lista du vill visa:");
+            Console.WriteLine("\n1. Filtrera böcker enligt författare");
+            Console.WriteLine("2. Sortera böcker efter publiceringsår");
+            Console.WriteLine("3. Återgå till huvudmenyn");
+            Console.Write("Ange ditt val (1-3): ");
+
+            string chooseFilterOrSortBook = Console.ReadLine()!;
+
+            bool validOptionSelected;
+
+            do
+            {
+                validOptionSelected = true;
+
+                switch (chooseFilterOrSortBook)
+                {
+                    case "1":
+                        Library.FilterBookByAuthor();
+                        break;
+                    case "2":
+                        Library.SortBookByPublicationYear();
+                        break;
+                    case "3":
+                        Console.WriteLine("Återgår till huvudmenyn...");
+                        return;
+                    default:
+                        Console.WriteLine("Inte ett giltigt alternativ. Välj en siffra mellan 1-3");
+                        chooseFilterOrSortBook = Console.ReadLine()!;
+                        validOptionSelected = false;
+                        break;
+                }
+            }
+            while (!validOptionSelected);
         }
     }
 }
