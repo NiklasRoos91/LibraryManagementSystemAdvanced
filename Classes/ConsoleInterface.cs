@@ -133,7 +133,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                 switch (chooseFilterOrSortBook)
                 {
                     case "1":
-                        Library.FilterBookByAuthor();
+                        Library.FilterBookByUserInput();
                         break;
                     case "2":
                         Library.SortBookByUserInput();

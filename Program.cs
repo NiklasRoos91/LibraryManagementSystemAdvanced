@@ -6,15 +6,15 @@ namespace LibraryManagementSystemAdvanced
     {
         static void Main(string[] args)
         {
+            //Library newLibrary = new Library();
 
-            static void Main(string[] args)
-            {
-                Library library = new Library();
+            //while (true)
+            //{
+            //    newLibrary.FilterBookByAuthor();
+            //    Console.ReadKey();
+            //    Console.Clear();
+            //}
 
-                // Visa böcker och författare för att kontrollera
-                library.ShowListOfAllBooks();
-                library.ShowListOfAllAuthors();
-            }
             ConsoleInterface consoleInterface = new ConsoleInterface();
 
             consoleInterface.DisplayMainMenu();

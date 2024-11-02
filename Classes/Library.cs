@@ -19,7 +19,6 @@ namespace LibraryManagementSystemAdvanced.Classes
             database = new Database();
             database.LoadDataFromFile();
 
-            // Koppla inlästa böcker och författare till listorna i Library
             bookList = database.AllBooksFromJSON;
             authorList = database.AllAuthorsFromJSON;
         }
@@ -66,7 +65,6 @@ namespace LibraryManagementSystemAdvanced.Classes
                     return;
                 }
             }
-
             bookList.Add(new Book(newID, newTitle, newGenre, newPublicationYear, newISBN, author));
 
             Console.WriteLine($"Boken '{newTitle}' har lagts till i systemet.");
@@ -109,7 +107,6 @@ namespace LibraryManagementSystemAdvanced.Classes
                     Console.WriteLine("4. ISBN");
                     Console.WriteLine("5. Återgå till huvudmenyn");
                     Console.Write("Ange ditt val (1-5): ");
-
 
                     string option = Console.ReadLine()!;
 
@@ -302,15 +299,75 @@ namespace LibraryManagementSystemAdvanced.Classes
         }
         //Sök och filtrera böcker
 
-        public void FilterBookByAuthor()
+        public void FilterBookByUserInput()
         {
+            Console.Clear();
             //Book bookToSearchAfter = AllBooks.Where(book => book.Title == ”Pippi Låbgstrump”).FirstOrDeafult()!;
+            // Filtrera böcker enligt genre, författare eller publiceringsår med hjälp av LINQ-frågor.
+            Console.WriteLine("Vänligen välj vilken lista du vill visa:");
+            Console.WriteLine("\n1. Filtrera böcker efter genre");
+            Console.WriteLine("2. Sortera böcker efter författare");
+            Console.WriteLine("3. Sortera böcker efter publiceringsår");
+            Console.WriteLine("4. Återgå till huvudmenyn");
+            Console.Write("Ange ditt val (1-4): ");
 
+            string chooseFilteringOption = Console.ReadLine()!;
 
+            List<Book> filteredBookList;
+
+            switch (chooseFilteringOption)
+            {
+                case "1":
+                    Console.Write("Skriv in genren du vill se: ");
+                    string filteringInputByUser = Console.ReadLine()!;
+                
+                    filteredBookList = bookList.Where(book => book.Genre.Equals(filteringInputByUser, StringComparison.OrdinalIgnoreCase)).ToList();
+                    break;
+                case "2":
+                    Console.Write("Skriv in författarens namn du vill se: ");
+                    filteringInputByUser = Console.ReadLine()!;
+
+                    filteredBookList = bookList.Where(book => book.Author.Name.Equals(filteringInputByUser, StringComparison.OrdinalIgnoreCase)).ToList();
+                    break;
+                case "3":
+                    Console.Write("Skriv in publiceringsåret du vill se: ");
+                    filteringInputByUser = Console.ReadLine()!;
+
+                    if (int.TryParse(filteringInputByUser, out int publicationYear))
+                    {
+                        filteredBookList = bookList.Where(book => book.PublicationYear == publicationYear).ToList();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ogiltigt år. Vänligen ange ett giltigt heltal.");
+                        return;
+                    }
+                    break;
+                case "4":
+                    Console.WriteLine("Återgår till huvudmenyn...");
+                    return;
+                default:
+                    Console.WriteLine("Ogiltigt val. Återgår till huvudmenyn...");
+                    return;
+            }
+            if (filteredBookList.Count == 0)
+            {
+                Console.WriteLine("Inga böcker hittades för den angivna sökningen.");
+            }
+            else
+            {
+                Console.WriteLine("Filtrerad lista:");
+
+                foreach (Book book in filteredBookList)
+                {
+                    Console.WriteLine($"Boktitel: {book.Title}, Författare: {book.Author.Name}, Publicerings år: {book.PublicationYear}");
+                }
+            }
         }
 
         public void SortBookByUserInput()
         {
+            Console.Clear();
             Console.WriteLine("Vänligen välj vilken lista du vill visa:");
             Console.WriteLine("\n1. Sortera böcker efter titel");
             Console.WriteLine("2. Sortera böcker efter författarens namn");
