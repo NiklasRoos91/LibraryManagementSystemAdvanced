@@ -8,7 +8,7 @@ namespace LibraryManagementSystemAdvanced.Classes
 {
     public class AuthorManager
     {
-        private List<Author> authorList;
+        public List<Author> authorList;
 
         public AuthorManager(List<Author> authors)
         {

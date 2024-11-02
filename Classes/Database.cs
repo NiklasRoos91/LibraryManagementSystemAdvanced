@@ -41,9 +41,14 @@ namespace LibraryManagementSystemAdvanced.Classes
         // Spara data till JSON-fil
         public void SaveData()
         {
+            var databaseData = new Database
+            {
+                AllBooksFromJSON = AllBooksFromJSON,
+                AllAuthorsFromJSON = AllAuthorsFromJSON
+            };
 
+            string jsonOutput = JsonSerializer.Serialize(databaseData, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(filePathJSON, jsonOutput);
         }
-
-
     }
 }

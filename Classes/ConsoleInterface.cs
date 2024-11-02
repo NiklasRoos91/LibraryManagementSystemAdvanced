@@ -14,7 +14,7 @@ namespace LibraryManagementSystemAdvanced.Classes
         {
             Library = new Library();
         }
-        public void DisplayMainMenu() 
+        public void DisplayLibraryMainMenu() 
         {
             bool runProgram = true;
 
@@ -63,6 +63,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                         MenuToSortOrFilter();
                         break;
                     case "9":
+                        Library.Database.SaveData();
                         Console.WriteLine("Avslutar och sparar data...");
                         return;
                     default:

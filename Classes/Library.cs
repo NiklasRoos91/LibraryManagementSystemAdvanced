@@ -9,7 +9,7 @@ namespace LibraryManagementSystemAdvanced.Classes
 {
     public class Library
     {
-        private Database database;
+        public Database Database { get; set; }
         public List<Book> bookList { get; set; } = new List<Book>();
         public List<Author> authorList { get; set; } = new List<Author>();
         public BookManager BookManager { get; private set; }
@@ -17,11 +17,11 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         public Library()
         {
-            database = new Database();
-            database.LoadDataFromFile();
+            Database = new Database();
+            Database.LoadDataFromFile();
 
-            var bookList = database.AllBooksFromJSON;
-            var authorList = database.AllAuthorsFromJSON;
+            var bookList = Database.AllBooksFromJSON;
+            var authorList = Database.AllAuthorsFromJSON;
 
             BookManager = new BookManager(bookList, authorList);
             AuthorManager = new AuthorManager(authorList);
