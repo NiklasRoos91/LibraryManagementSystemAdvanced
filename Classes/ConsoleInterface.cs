@@ -118,7 +118,7 @@ namespace LibraryManagementSystemAdvanced.Classes
         {
             Console.WriteLine("Vänligen välj vilken lista du vill visa:");
             Console.WriteLine("\n1. Filtrera böcker enligt författare");
-            Console.WriteLine("2. Sortera böcker efter publiceringsår");
+            Console.WriteLine("2. Sortera böcker");
             Console.WriteLine("3. Återgå till huvudmenyn");
             Console.Write("Ange ditt val (1-3): ");
 
@@ -136,7 +136,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                         Library.FilterBookByAuthor();
                         break;
                     case "2":
-                        Library.SortBookByPublicationYear();
+                        Library.SortBookByUserInput();
                         break;
                     case "3":
                         Console.WriteLine("Återgår till huvudmenyn...");

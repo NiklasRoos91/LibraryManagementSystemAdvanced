@@ -305,19 +305,48 @@ namespace LibraryManagementSystemAdvanced.Classes
         public void FilterBookByAuthor()
         {
             //Book bookToSearchAfter = AllBooks.Where(book => book.Title == ”Pippi Låbgstrump”).FirstOrDeafult()!;
+
+
         }
 
-        public void SortBookByPublicationYear()
-        {          
-            List<Book> OrderByPublicationYear = bookList.OrderByDescending(book => book.PublicationYear).Reverse().ToList();
+        public void SortBookByUserInput()
+        {
+            Console.WriteLine("Vänligen välj vilken lista du vill visa:");
+            Console.WriteLine("\n1. Sortera böcker efter titel");
+            Console.WriteLine("2. Sortera böcker efter författarens namn");
+            Console.WriteLine("3. Sortera böcker efter publiceringsår");
+            Console.WriteLine("4. Återgå till huvudmenyn");
+            Console.Write("Ange ditt val (1-4): ");
 
-            Console.WriteLine("Böcker sorterade efter publiceringsår (fallande ordning):");
-            
-            foreach (Book book in OrderByPublicationYear)
+            string chooseSortOption = Console.ReadLine()!;
+
+            List<Book> sortedBookList;
+
+            switch (chooseSortOption)
             {
-                Console.WriteLine($"Boktitel: {book.Title}, Publicerings år: {book.PublicationYear}");
+                case "1":
+                    sortedBookList = bookList.OrderBy(book => book.Title).ToList();
+                    break;
+                case "2":
+                    sortedBookList = bookList.OrderBy(book => book.Author.Name).ToList();
+                    break;
+                case "3":
+                    sortedBookList = bookList.OrderBy(book => book.PublicationYear).ToList();
+                    break;
+                case "4":
+                    Console.WriteLine("Återgår till huvudmenyn...");
+                    return;
+                default:
+                    Console.WriteLine("Ogiltigt val. Återgår till huvudmenyn...");
+                    return;
+            }
+
+            Console.WriteLine("Sorterad lista:");
+
+            foreach (Book book in sortedBookList)
+            {
+                Console.WriteLine($"Boktitel: {book.Title}, Författare: {book.Author.Name}, Publicerings år: {book.PublicationYear}");
             }
         }
     }
-
 }
