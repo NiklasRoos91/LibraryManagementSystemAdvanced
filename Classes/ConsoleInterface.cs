@@ -10,7 +10,6 @@ namespace LibraryManagementSystemAdvanced.Classes
     public class ConsoleInterface
     {
         Library Library { get; set; }
-
         public ConsoleInterface()
         {
             Library = new Library();
@@ -40,22 +39,22 @@ namespace LibraryManagementSystemAdvanced.Classes
                 switch (chooseMenuOption)
                 {
                     case "1":
-                        Library.AddBook();
+                        Library.BookManager.AddBook();
                         break;
                     case "2":
-                        Library.AddAuthor();
+                        Library.AuthorManager.AddAuthor();
                         break;
                     case "3":
-                        Library.UpdateBook();
+                        Library.BookManager.UpdateBook();
                         break;
                     case "4":
-                        Library.UpdateAuthor();
+                        Library.AuthorManager.UpdateAuthor();
                         break;
                     case "5":
-                        Library.RemoveBook();
+                        Library.BookManager.RemoveBook();
                         break;
                     case "6":
-                        Library.RemoveAuthor();
+                        Library.AuthorManager.RemoveAuthor();
                         break;
                     case "7":
                         MenuToChooseShowBookOrAuthor();
@@ -97,10 +96,10 @@ namespace LibraryManagementSystemAdvanced.Classes
                 switch (chooseShowBookOrAuthor)
                 {
                     case "1":
-                        Library.ShowListOfAllBooks();
+                        Library.BookManager.ShowListOfAllBooks();
                         break;
                     case "2":
-                        Library.ShowListOfAllAuthors();
+                        Library.AuthorManager.ShowListOfAllAuthors();
                         break;
                     case "3":
                         Console.WriteLine("Återgår till huvudmenyn...");

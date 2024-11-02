@@ -33,16 +33,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                  {
                     AllBooksFromJSON = loadedDataFromJSON.AllBooksFromJSON ?? new List<Book>();
                     AllAuthorsFromJSON = loadedDataFromJSON.AllAuthorsFromJSON ?? new List<Author>();
-                    Console.WriteLine("Data har lästs in från LibraryData.json.");
                  }
-                 else
-                 {
-                    Console.WriteLine("Ingen data kunde läsas från filen.");
-                 }
-            }
-            else
-            {
-                Console.WriteLine("Ingen datafil hittades, en ny fil kommer att skapas vid sparande.");
             }
         }
 
