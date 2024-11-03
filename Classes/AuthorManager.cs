@@ -31,7 +31,7 @@ namespace LibraryManagementSystemAdvanced.Classes
         }
         public void UpdateAuthor()
         {
-            Console.Write("Ange namnet på författare du vill uppdatera: ");
+            Console.Write("Ange namnet på författaren du vill uppdatera: ");
             string authorToUpdate = Console.ReadLine()!;
 
             bool authorFound = false;

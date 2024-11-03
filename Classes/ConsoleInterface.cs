@@ -29,7 +29,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                 Console.WriteLine("4. Uppdatera författardetaljer");
                 Console.WriteLine("5. Ta bort bok");
                 Console.WriteLine("6. Ta bort författare");
-                Console.WriteLine("7. Lista alla böcker och författare");
+                Console.WriteLine("7. Lista med alla böcker och författare");
                 Console.WriteLine("8. Sök och filtrera böcker");
                 Console.WriteLine("9. Avsluta och spara data");
                 Console.Write("Ange ditt val (1-9): ");
@@ -85,7 +85,6 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.WriteLine("3. Återgå till huvudmenyn");
             Console.Write("Ange ditt val (1-3): ");
 
-
             string chooseShowBookOrAuthor = Console.ReadLine()!;
 
             bool validOptionSelected;
@@ -116,7 +115,7 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         private void MenuToSortOrFilter()
         {
-            Console.WriteLine("Vänligen välj vilken lista du vill visa:");
+            Console.WriteLine("Vänligen välj vad du vill göra:");
             Console.WriteLine("\n1. Filtrera böcker");
             Console.WriteLine("2. Sortera böcker");
             Console.WriteLine("3. Återgå till huvudmenyn");

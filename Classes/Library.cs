@@ -31,10 +31,10 @@ namespace LibraryManagementSystemAdvanced.Classes
         {
             Console.Clear();
 
-            Console.WriteLine("Vänligen välj vilken lista du vill visa:");
-            Console.WriteLine("\n1. Filtrera böcker efter genre");
-            Console.WriteLine("2. Sortera böcker efter författare");
-            Console.WriteLine("3. Sortera böcker efter publiceringsår");
+            Console.WriteLine("Vänligen välj vad du vill filtrera enligt:");
+            Console.WriteLine("\n1. Genre");
+            Console.WriteLine("2. Författare");
+            Console.WriteLine("3. Publiceringsår");
             Console.WriteLine("4. Återgå till huvudmenyn");
             Console.Write("Ange ditt val (1-4): ");
 
@@ -95,10 +95,10 @@ namespace LibraryManagementSystemAdvanced.Classes
         public void SortBookByUserInput()
         {
             Console.Clear();
-            Console.WriteLine("Vänligen välj vilken lista du vill visa:");
-            Console.WriteLine("\n1. Sortera böcker efter titel");
-            Console.WriteLine("2. Sortera böcker efter författarens namn");
-            Console.WriteLine("3. Sortera böcker efter publiceringsår");
+            Console.WriteLine("Vänligen välj vad du vill sorteradina böcker efter:");
+            Console.WriteLine("\n1. Titel");
+            Console.WriteLine("2. Författarens namn");
+            Console.WriteLine("3. Publiceringsår");
             Console.WriteLine("4. Återgå till huvudmenyn");
             Console.Write("Ange ditt val (1-4): ");
 

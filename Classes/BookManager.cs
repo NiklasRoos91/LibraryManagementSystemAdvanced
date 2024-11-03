@@ -67,7 +67,7 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         public void UpdateBook()
         {
-            Console.Write("Ange titeln på bok du vill uppdatera: ");
+            Console.Write("Ange titeln på boken du vill uppdatera: ");
             string bookToUpdate = Console.ReadLine()!;
 
             bool bookFound = false;
