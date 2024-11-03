@@ -117,7 +117,7 @@ namespace LibraryManagementSystemAdvanced.Classes
         private void MenuToSortOrFilter()
         {
             Console.WriteLine("Vänligen välj vilken lista du vill visa:");
-            Console.WriteLine("\n1. Filtrera böcker enligt författare");
+            Console.WriteLine("\n1. Filtrera böcker");
             Console.WriteLine("2. Sortera böcker");
             Console.WriteLine("3. Återgå till huvudmenyn");
             Console.Write("Ange ditt val (1-3): ");

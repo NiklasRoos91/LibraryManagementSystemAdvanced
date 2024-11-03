@@ -20,8 +20,8 @@ namespace LibraryManagementSystemAdvanced.Classes
             Database = new Database();
             Database.LoadDataFromFile();
 
-            var bookList = Database.AllBooksFromJSON;
-            var authorList = Database.AllAuthorsFromJSON;
+            bookList = Database.AllBooksFromJSON;
+            authorList = Database.AllAuthorsFromJSON;
 
             BookManager = new BookManager(bookList, authorList);
             AuthorManager = new AuthorManager(authorList);
