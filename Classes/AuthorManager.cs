@@ -22,12 +22,25 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.Write("Ange författarens land: ");
             string newCountry = Console.ReadLine()!;
 
-            Console.Write("Ange id: ");
-            int newID = int.Parse(Console.ReadLine()!);
+            int newID = InputHelper.GetValidIntegerInputFromUser("Ange ID (heltal): ");
 
-            authorList.Add(new Author(newID, newName, newCountry));
+            bool authorAlreadyExists = false;
 
-            Console.WriteLine($"Författaren '{newName}' har lagts till i systemet.");
+            foreach (Author author in authorList)
+            {
+                if (newName == author.Name || newID == author.Id)
+                {
+                    Console.WriteLine("Den här författaren eller ID finns redan i biblioteket och kommer därför inte läggas till.");
+                    authorAlreadyExists = true;
+                    break;
+                }
+            }
+            if (!authorAlreadyExists)
+            {
+                authorList.Add(new Author(newID, newName, newCountry));
+
+                Console.WriteLine($"Författaren '{newName}' har lagts till i systemet.");
+            }
         }
         public void UpdateAuthor()
         {

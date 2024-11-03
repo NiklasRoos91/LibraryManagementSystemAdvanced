@@ -26,14 +26,12 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.Write("Ange genre: ");
             string newGenre = Console.ReadLine()!;
 
-            Console.Write("Ange id: ");
-            int newID = int.Parse(Console.ReadLine()!);
 
-            Console.Write("Ange publiceringsår: ");
-            int newPublicationYear = int.Parse(Console.ReadLine()!);
+            int newID = InputHelper.GetValidIntegerInputFromUser("Ange ID: ");
 
-            Console.Write("Ange ISBN: ");
-            int newISBN = int.Parse(Console.ReadLine()!);
+            int newPublicationYear = InputHelper.GetValidIntegerInputFromUser("Ange publiceringsår: ");
+
+            int newISBN = InputHelper.GetValidIntegerInputFromUser("Ange ISBN: ");
 
             Console.Write("Ange författarens namn: ");
             string authorName = Console.ReadLine()!;
@@ -60,9 +58,25 @@ namespace LibraryManagementSystemAdvanced.Classes
                     return;
                 }
             }
-            bookList.Add(new Book(newID, newTitle, newGenre, newPublicationYear, newISBN, author));
 
-            Console.WriteLine($"Boken '{newTitle}' har lagts till i systemet.");
+            bool bookAlreadyExists = false;
+
+            foreach (Book book in bookList)
+            {
+
+                if (newTitle == book.Title || newISBN == book.ISBN || newID == book.Id)
+                {
+                    Console.WriteLine("Den här bokens titel, ISBN-nummer eller ID finns redan i biblioteket och kommer därför inte läggas till.");
+                    bookAlreadyExists = true;
+                    break;
+                }
+            }
+            if (!bookAlreadyExists)
+            {
+                bookList.Add(new Book(newID, newTitle, newGenre, newPublicationYear, newISBN, author));
+
+                Console.WriteLine($"Boken '{newTitle}' har lagts till i systemet.");
+            }
         }
 
         public void UpdateBook()
@@ -102,28 +116,12 @@ namespace LibraryManagementSystemAdvanced.Classes
                             Console.WriteLine("Boken har uppdaterats.");
                             break;
                         case "3":
-                            Console.Write("Ange nytt publiceringsår: ");
-                            if (int.TryParse(Console.ReadLine(), out int newYear))
-                            {
-                                book.PublicationYear = newYear;
-                                Console.WriteLine("Boken har uppdaterats.");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Ogiltigt år. Uppdatering misslyckades.");
-                            }
+                            book.PublicationYear = InputHelper.GetValidIntegerInputFromUser("Ange nytt publiceringsår: ");
+                            Console.WriteLine("Boken har uppdaterats.");
                             break;
                         case "4":
-                            Console.Write("Ange nytt ISBN: ");
-                            if (int.TryParse(Console.ReadLine(), out int newISBN))
-                            {
-                                book.ISBN = newISBN;
-                                Console.WriteLine("Boken har uppdaterats.");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Ogiltigt ISBN. Uppdatering misslyckades.");
-                            }
+                            book.ISBN = InputHelper.GetValidIntegerInputFromUser("Ange nytt ISBN: ");
+                            Console.WriteLine("Boken har uppdaterats.");
                             break;
                         case "5":
                             Console.WriteLine("Återgår till huvudmenyn...");
