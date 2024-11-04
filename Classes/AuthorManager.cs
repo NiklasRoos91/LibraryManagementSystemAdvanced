@@ -96,26 +96,22 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.Write("Skriv vilken författare du vill ta bort: ");
             string authorToRemove = Console.ReadLine()!;
 
-            // Skapa en lista för böcker som ska tas bort
-            List<Author> authorsToRemove = new List<Author>();
+            bool authorFound = false;
 
-            foreach (Author author in authorList)
+            foreach (Author author in authorList.ToList())
             {
                 if (author.Name.Equals(authorToRemove, StringComparison.OrdinalIgnoreCase))
                 {
-                    authorsToRemove.Add(author);
+                    authorList.Remove(author);
+                    Console.WriteLine($"{authorToRemove} har tagits bort från listan.");
+                    authorFound = true;
+                    break;
                 }
             }
-
-            foreach (Author author in authorsToRemove)
-            {
-                authorList.Remove(author);
-                Console.WriteLine($"{authorToRemove} är bortagen från listan.");
-            }
-
-            if (authorsToRemove.Count == 0)
+            if (!authorFound)
             {
                 Console.WriteLine($"{authorToRemove} finns inte i listan.");
+
             }
         }
         public void ShowListOfAllAuthors()

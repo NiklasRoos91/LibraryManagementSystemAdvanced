@@ -142,23 +142,19 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.Write("Skriv vilken bok du vill ta bort: ");
             string bookToRemove = Console.ReadLine()!;
 
-            List<Book> booksToRemove = new List<Book>();
+            bool bookFound = false;
 
-            foreach (Book book in bookList)
+            foreach (Book book in bookList.ToList())
             {
                 if (book.Title.Equals(bookToRemove, StringComparison.OrdinalIgnoreCase))
                 {
-                    booksToRemove.Add(book);
+                    bookList.Remove(book);
+                    Console.WriteLine($"{bookToRemove} har tagits bort från listan.");
+                    bookFound = true; 
+                    break;
                 }
             }
-
-            foreach (Book book in booksToRemove)
-            {
-                bookList.Remove(book);
-                Console.WriteLine($"{bookToRemove} är bortagen från listan.");
-            }
-
-            if (booksToRemove.Count == 0)
+            if (!bookFound)
             {
                 Console.WriteLine($"{bookToRemove} finns inte i listan.");
             }
