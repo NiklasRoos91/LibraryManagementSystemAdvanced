@@ -189,8 +189,16 @@ namespace LibraryManagementSystemAdvanced.Classes
             {
                 if ( book.Title.Equals(bookToReview, StringComparison.OrdinalIgnoreCase) )
                 {
-                    Console.Write("Skriv ditt betyg: ");
-                    int review = Convert.ToInt32(Console.ReadLine()!);
+                    int review = InputHelper.GetValidIntegerInputFromUser("Skriv ditt betyg (mellan 1-5): ");
+
+                    if (review == 0 || review > 5)
+                    {
+                        Console.WriteLine("Ogiltigt betyg. Var god ange ett betyg mellan 1 och 5.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Tack för ditt betyg: {review}");
+                    }
 
                     book.Reviews.Add(review);
                     Console.WriteLine("Recension tillagd!");
