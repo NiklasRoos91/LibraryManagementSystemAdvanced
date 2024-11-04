@@ -53,7 +53,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                     authorFound = true;
 
                     Console.WriteLine("Vad vill du uppdatera?");
-                    Console.WriteLine("1. Namn");
+                    Console.WriteLine("\n1. Namn");
                     Console.WriteLine("2. Land");
                     Console.WriteLine("3. Återgå till huvudmenyn");
 

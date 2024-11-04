@@ -88,7 +88,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                     bookFound = true;
 
                     Console.WriteLine("Vad vill du uppdatera?");
-                    Console.WriteLine("1. Titel");
+                    Console.WriteLine("\n1. Titel");
                     Console.WriteLine("2. Genre");
                     Console.WriteLine("3. Publiceringsår");
                     Console.WriteLine("4. ISBN");

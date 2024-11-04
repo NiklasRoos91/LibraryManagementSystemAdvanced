@@ -83,7 +83,7 @@ namespace LibraryManagementSystemAdvanced.Classes
         public void MenuToChooseShowBookOrAuthor()
         {
             Console.WriteLine("Vänligen välj vilken lista du vill visa:");
-            Console.WriteLine("1. Lista med böcker");
+            Console.WriteLine("\n1. Lista med böcker");
             Console.WriteLine("2. Lista med författare");
             Console.WriteLine("3. Återgå till huvudmenyn");
 
