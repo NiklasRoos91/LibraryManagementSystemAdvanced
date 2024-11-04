@@ -189,22 +189,25 @@ namespace LibraryManagementSystemAdvanced.Classes
             {
                 if ( book.Title.Equals(bookToReview, StringComparison.OrdinalIgnoreCase) )
                 {
-                    int review = InputHelper.GetValidIntegerInputFromUser("Skriv ditt betyg (mellan 1-5): ");
-
-                    if (review == 0 || review > 5)
+                    int review;
+                    while (true)
                     {
-                        Console.WriteLine("Ogiltigt betyg. Var god ange ett betyg mellan 1 och 5.");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Tack för ditt betyg: {review}");
-                    }
+                        review = InputHelper.GetValidIntegerInputFromUser("Skriv ditt betyg (mellan 1-5): ");
 
-                    book.Reviews.Add(review);
-                    Console.WriteLine("Recension tillagd!");
-                    return;
+                        if (review < 1 || review > 5)
+                        {
+                            Console.WriteLine("Ogiltigt betyg. Var god ange ett betyg mellan 1 och 5.");
+                        }
+                        else
+                        {
+                            book.Reviews.Add(review);
+                            Console.WriteLine("Recension tillagd!");
+                            return;
+                        }
+                    }
                 }
             }
+            Console.WriteLine($"Boken '{bookToReview}' finns inte i listan.");
         }
     }
 }
