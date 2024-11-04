@@ -33,9 +33,10 @@ namespace LibraryManagementSystemAdvanced.Classes
                 Console.WriteLine("8. Sök och filtrera böcker");
                 Console.WriteLine("9. Lägg till betyg på bok");
                 Console.WriteLine("10. Avsluta och spara data");
-                Console.Write("Ange ditt val (1-9): ");
+                Console.Write("Ange ditt val (1-10): ");
 
                 string chooseMenuOption = Console.ReadLine()!;
+
 
                 switch (chooseMenuOption)
                 {
