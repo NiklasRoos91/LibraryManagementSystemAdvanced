@@ -31,7 +31,8 @@ namespace LibraryManagementSystemAdvanced.Classes
                 Console.WriteLine("6. Ta bort författare");
                 Console.WriteLine("7. Lista med alla böcker och författare");
                 Console.WriteLine("8. Sök och filtrera böcker");
-                Console.WriteLine("9. Avsluta och spara data");
+                Console.WriteLine("9. Lägg till betyg på bok");
+                Console.WriteLine("10. Avsluta och spara data");
                 Console.Write("Ange ditt val (1-9): ");
 
                 string chooseMenuOption = Console.ReadLine()!;
@@ -63,6 +64,9 @@ namespace LibraryManagementSystemAdvanced.Classes
                         MenuToSortOrFilter();
                         break;
                     case "9":
+                        Library.BookManager.AddReview();
+                        break;
+                    case "10":
                         Library.Database.SaveData();
                         Console.WriteLine("Avslutar och sparar data...");
                         return;

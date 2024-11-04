@@ -8,7 +8,6 @@ namespace LibraryManagementSystemAdvanced.Classes
 {
     public class Author
     {
-        // Författare: Ska inkludera egenskaper som Id, Namn, Land och en lista över skrivna Böcker.
         public int Id { get; set; } 
         public string Name { get; set; }        
         public string Country { get; set; }

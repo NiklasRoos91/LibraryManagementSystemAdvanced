@@ -3,7 +3,7 @@
     {
       "Name": "Astrid Lindgren",
       "Country": "Sverige",
-        "Id": 1
+      "Id": 1
     },
     {
       "Name": "J.K. Rowling",
@@ -21,61 +21,66 @@
       "Title": "Pippi Långstrump",
       "Genre": "Barnbok",
       "PublicationYear": 1945,
-      "ID": 1,
+      "Id": 1,
       "ISBN": 100,
       "Author": {
-        "ID": 1,
+        "Id": 1,
         "Name": "Astrid Lindgren",
         "Country": "Sverige"
-      }
+      },
+      "Reviews": [ 5, 4 ]
     },
     {
       "Title": "Harry Potter och de vises sten",
       "Genre": "Fantasy",
       "PublicationYear": 1997,
-      "ID": 2,
+      "Id": 2,
       "ISBN": 102,
       "Author": {
-        "ID": 2,
+        "Id": 2,
         "Name": "J.K. Rowling",
-        "Country": "Storbritanien"
-      }
+        "Country": "Storbritannien"
+      },
+      "Reviews": [ 5, 5 ]
     },
     {
       "Title": "A Game of Thrones",
       "Genre": "Fantasy",
       "PublicationYear": 1996,
-      "ID": 3,
+      "Id": 3,
       "ISBN": 103,
       "Author": {
+        "Id": 3,
         "Name": "George R.R. Martin",
-        "Country": "USA",
-        "Id": 3
-        }
+        "Country": "USA"
       },
-      {
-        "Title": "Bröderna Lejonhjärta",
-        "Genre": "Barnbok",
-        "PublicationYear": 1973,
-        "ID": 4,
-        "ISBN": 104,
-        "Author": {
-          "ID": 1,
-          "Name": "Astrid Lindgren",
-          "Country": "Sverige"
-          }
-        },
-        {
-          "Title": "Harry Potter och Hemligheternas kammare",
-          "Genre": "Fantasy",
-          "PublicationYear": 1998,
-          "ID": 5,
-          "ISBN": 105,
-          "Author": {
-            "ID": 2,
-            "Name": "J.K. Rowling",
-            "Country": "Storbritanien"
-            }
-          }
+      "Reviews": [ 4, 5 ]
+    },
+    {
+      "Title": "Bröderna Lejonhjärta",
+      "Genre": "Barnbok",
+      "PublicationYear": 1973,
+      "Id": 4,
+      "ISBN": 104,
+      "Author": {
+        "Id": 1,
+        "Name": "Astrid Lindgren",
+        "Country": "Sverige"
+      },
+      "Reviews": [ 4 ]
+    },
+    {
+      "Title": "Harry Potter och Hemligheternas kammare",
+      "Genre": "Fantasy",
+      "PublicationYear": 1998,
+      "Id": 5,
+      "ISBN": 105,
+      "Author": {
+        "Id": 2,
+        "Name": "J.K. Rowling",
+        "Country": "Storbritannien"
+      },
+      "Reviews": []
+    }
   ]
 }

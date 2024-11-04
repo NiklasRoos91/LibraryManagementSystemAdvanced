@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +27,6 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.Write("Ange genre: ");
             string newGenre = Console.ReadLine()!;
 
-
             int newID = InputHelper.GetValidIntegerInputFromUser("Ange ID: ");
 
             int newPublicationYear = InputHelper.GetValidIntegerInputFromUser("Ange publiceringsår: ");
@@ -36,13 +36,10 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.Write("Ange författarens namn: ");
             string authorName = Console.ReadLine()!;
 
-            // Hitta författaren i authorList
-            Author author = authorList.FirstOrDefault(author => author.Name.Equals(authorName, StringComparison.OrdinalIgnoreCase));
+            Author author = authorList.FirstOrDefault(author => author.Name.Equals(authorName, StringComparison.OrdinalIgnoreCase))!;
 
             if (author == null)
             {
-                // om författaren inte finns fråga användaren om den vill lägga till författaren,
-                // annars meddela att den inte finns och att det inte går att lägga till en bok
                 Console.WriteLine($"Författaren '{authorName}' finns inte i systemet. För att lägga till boken behöver du lägga till författaren först.");
                 Console.Write("Vill du lägga till författaren? (ja/nej): ");
                 string response = Console.ReadLine()!;
@@ -63,7 +60,6 @@ namespace LibraryManagementSystemAdvanced.Classes
 
             foreach (Book book in bookList)
             {
-
                 if (newTitle == book.Title || newISBN == book.ISBN || newID == book.Id)
                 {
                     Console.WriteLine("Den här bokens titel, ISBN-nummer eller ID finns redan i biblioteket och kommer därför inte läggas till.");
@@ -71,9 +67,13 @@ namespace LibraryManagementSystemAdvanced.Classes
                     break;
                 }
             }
+
             if (!bookAlreadyExists)
             {
-                bookList.Add(new Book(newID, newTitle, newGenre, newPublicationYear, newISBN, author));
+                List<int> reviews = new List<int>();
+
+                Console.WriteLine("");
+                bookList.Add(new Book(newID, newTitle, newGenre, newPublicationYear, newISBN, author, reviews));
 
                 Console.WriteLine($"Boken '{newTitle}' har lagts till i systemet.");
             }
@@ -92,7 +92,6 @@ namespace LibraryManagementSystemAdvanced.Classes
                 {
                     bookFound = true;
 
-                    // Visa alternativ för vad som ska uppdateras
                     Console.WriteLine("Vad vill du uppdatera?");
                     Console.WriteLine("1. Titel");
                     Console.WriteLine("2. Genre");
@@ -143,7 +142,6 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.Write("Skriv vilken bok du vill ta bort: ");
             string bookToRemove = Console.ReadLine()!;
 
-            // Skapa en lista för böcker som ska tas bort
             List<Book> booksToRemove = new List<Book>();
 
             foreach (Book book in bookList)
@@ -172,12 +170,32 @@ namespace LibraryManagementSystemAdvanced.Classes
             {
                 foreach (Book book in bookList)
                 {
-                    Console.WriteLine($"Boktitel: {book.Title}, Författare: {book.Author.Name}, Publicerings år: {book.PublicationYear}, Genre: {book.Genre}");
+                    double averageRating = book.AverageRating();
+                    Console.WriteLine($"Boktitel: {book.Title}, Författare: {book.Author.Name}, Publicerings år: {book.PublicationYear}, Genre: {book.Genre}, Medelbetyg; {averageRating}");
                 }
             }
             else
             {
                 Console.WriteLine("Det finns inga böcker att visa.");
+            }
+        }
+
+        public void AddReview()
+        {
+            Console.Write("Ange titeln på boken du vill betygsätta: ");
+            string bookToReview = Console.ReadLine()!;
+
+            foreach (Book book in bookList)
+            {
+                if ( book.Title.Equals(bookToReview, StringComparison.OrdinalIgnoreCase) )
+                {
+                    Console.Write("Skriv ditt betyg: ");
+                    int review = Convert.ToInt32(Console.ReadLine()!);
+
+                    book.Reviews.Add(review);
+                    Console.WriteLine("Recension tillagd!");
+                    return;
+                }
             }
         }
     }
