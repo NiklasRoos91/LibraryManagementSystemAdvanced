@@ -56,9 +56,8 @@ namespace LibraryManagementSystemAdvanced.Classes
                     Console.WriteLine("1. Namn");
                     Console.WriteLine("2. Land");
                     Console.WriteLine("3. Återgå till huvudmenyn");
-                    Console.Write("Ange ditt val (1-3): ");
 
-                    string option = Console.ReadLine()!;
+                    string option = InputHelper.GetValidStringInputFromUser("Ange ditt val (1-3): ");
 
                     switch (option)
                     {

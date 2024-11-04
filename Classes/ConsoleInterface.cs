@@ -33,9 +33,8 @@ namespace LibraryManagementSystemAdvanced.Classes
                 Console.WriteLine("8. Sök och filtrera böcker");
                 Console.WriteLine("9. Lägg till betyg på bok");
                 Console.WriteLine("10. Avsluta och spara data");
-                Console.Write("Ange ditt val (1-10): ");
 
-                string chooseMenuOption = Console.ReadLine()!;
+                string chooseMenuOption = InputHelper.GetValidStringInputFromUser("Ange ditt val (1-10): ");
 
                 switch (chooseMenuOption)
                 {
@@ -87,9 +86,8 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.WriteLine("1. Lista med böcker");
             Console.WriteLine("2. Lista med författare");
             Console.WriteLine("3. Återgå till huvudmenyn");
-            Console.Write("Ange ditt val (1-3): ");
 
-            string chooseShowBookOrAuthor = Console.ReadLine()!;
+            string chooseShowBookOrAuthor = InputHelper.GetValidStringInputFromUser("Ange ditt val (1-3): ");
 
             bool validOptionSelected;
 
@@ -123,9 +121,8 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.WriteLine("\n1. Filtrera böcker");
             Console.WriteLine("2. Sortera böcker");
             Console.WriteLine("3. Återgå till huvudmenyn");
-            Console.Write("Ange ditt val (1-3): ");
 
-            string chooseFilterOrSortBook = Console.ReadLine()!;
+            string chooseFilterOrSortBook = InputHelper.GetValidStringInputFromUser("Ange ditt val (1-3): ");
 
             bool validOptionSelected;
 

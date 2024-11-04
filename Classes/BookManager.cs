@@ -38,8 +38,7 @@ namespace LibraryManagementSystemAdvanced.Classes
             if (author == null)
             {
                 Console.WriteLine($"Författaren '{authorName}' finns inte i systemet. För att lägga till boken behöver du lägga till författaren först.");
-                Console.Write("Vill du lägga till författaren? (ja/nej): ");
-                string response = Console.ReadLine()!;
+                string response = InputHelper.GetValidStringInputFromUser("Vill du lägga till författaren? (ja/nej): ");
 
                 if (response == "ja")
                 {
@@ -94,9 +93,8 @@ namespace LibraryManagementSystemAdvanced.Classes
                     Console.WriteLine("3. Publiceringsår");
                     Console.WriteLine("4. ISBN");
                     Console.WriteLine("5. Återgå till huvudmenyn");
-                    Console.Write("Ange ditt val (1-5): ");
 
-                    string option = Console.ReadLine()!;
+                    string option = InputHelper.GetValidStringInputFromUser("Ange ditt val (1-5): ");
 
                     switch (option)
                     {

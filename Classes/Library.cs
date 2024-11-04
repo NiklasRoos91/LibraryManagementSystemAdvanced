@@ -36,9 +36,8 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.WriteLine("2. Författare");
             Console.WriteLine("3. Publiceringsår");
             Console.WriteLine("4. Återgå till huvudmenyn");
-            Console.Write("Ange ditt val (1-4): ");
 
-            string chooseFilteringOption = Console.ReadLine()!;
+            string chooseFilteringOption = InputHelper.GetValidStringInputFromUser("Ange ditt val (1-4): ");
 
             List<Book> filteredBookList;
 
@@ -97,9 +96,8 @@ namespace LibraryManagementSystemAdvanced.Classes
             Console.WriteLine("2. Författarens namn");
             Console.WriteLine("3. Publiceringsår");
             Console.WriteLine("4. Återgå till huvudmenyn");
-            Console.Write("Ange ditt val (1-4): ");
 
-            string chooseSortOption = Console.ReadLine()!;
+            string chooseSortOption = InputHelper.GetValidStringInputFromUser("Ange ditt val (1-4): ");
 
             List<Book> sortedBookList;
 
