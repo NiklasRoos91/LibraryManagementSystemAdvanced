@@ -37,7 +37,6 @@ namespace LibraryManagementSystemAdvanced.Classes
 
                 string chooseMenuOption = Console.ReadLine()!;
 
-
                 switch (chooseMenuOption)
                 {
                     case "1":
@@ -72,7 +71,7 @@ namespace LibraryManagementSystemAdvanced.Classes
                         Console.WriteLine("Avslutar och sparar data...");
                         return;
                     default:
-                        Console.WriteLine("Inte ett giltigt alternativ. Välj en siffra mellan 1-9");
+                        Console.WriteLine("Inte ett giltigt alternativ. Välj en siffra mellan 1-10");
                         chooseMenuOption = Console.ReadLine()!;
                         break;
                 }

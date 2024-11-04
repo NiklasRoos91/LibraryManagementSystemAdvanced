@@ -45,20 +45,17 @@ namespace LibraryManagementSystemAdvanced.Classes
             switch (chooseFilteringOption)
             {
                 case "1":
-                    Console.Write("Skriv in genren du vill se: ");
-                    string filteringInputByUser = Console.ReadLine()!;
+                    string filteringInputByUser = InputHelper.GetValidStringInputFromUser("Skriv in genren du vill se: ");
                 
                     filteredBookList = bookList.Where(book => book.Genre.Equals(filteringInputByUser, StringComparison.OrdinalIgnoreCase)).ToList();
                     break;
                 case "2":
-                    Console.Write("Skriv in författarens namn du vill se: ");
-                    filteringInputByUser = Console.ReadLine()!;
+                    filteringInputByUser = InputHelper.GetValidStringInputFromUser("Skriv in författarens namn du vill se: ");
 
                     filteredBookList = bookList.Where(book => book.Author.Name.Equals(filteringInputByUser, StringComparison.OrdinalIgnoreCase)).ToList();
                     break;
                 case "3":
-                    Console.Write("Skriv in publiceringsåret du vill se: ");
-                    filteringInputByUser = Console.ReadLine()!;
+                    filteringInputByUser = InputHelper.GetValidStringInputFromUser("Skriv in publiceringsåret du vill se: ");
 
                     if (int.TryParse(filteringInputByUser, out int publicationYear))
                     {

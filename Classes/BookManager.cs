@@ -21,11 +21,9 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         public void AddBook()
         {
-            Console.Write("Ange boktitel: ");
-            string newTitle = Console.ReadLine()!;
+            string newTitle = InputHelper.GetValidStringInputFromUser("Ange boktitel: ");
 
-            Console.Write("Ange genre: ");
-            string newGenre = Console.ReadLine()!;
+            string newGenre = InputHelper.GetValidStringInputFromUser("Ange genre: ");
 
             int newID = InputHelper.GetValidIntegerInputFromUser("Ange ID: ");
 
@@ -33,8 +31,7 @@ namespace LibraryManagementSystemAdvanced.Classes
 
             int newISBN = InputHelper.GetValidIntegerInputFromUser("Ange ISBN: ");
 
-            Console.Write("Ange författarens namn: ");
-            string authorName = Console.ReadLine()!;
+            string authorName = InputHelper.GetValidStringInputFromUser("Ange författarens namn: ");
 
             Author author = authorList.FirstOrDefault(author => author.Name.Equals(authorName, StringComparison.OrdinalIgnoreCase))!;
 
@@ -81,8 +78,7 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         public void UpdateBook()
         {
-            Console.Write("Ange titeln på boken du vill uppdatera: ");
-            string bookToUpdate = Console.ReadLine()!;
+            string bookToUpdate = InputHelper.GetValidStringInputFromUser("Ange titeln på boken du vill uppdatera: ");
 
             bool bookFound = false;
 
@@ -105,13 +101,11 @@ namespace LibraryManagementSystemAdvanced.Classes
                     switch (option)
                     {
                         case "1":
-                            Console.Write("Ange ny titel: ");
-                            book.Title = Console.ReadLine()!;
+                            book.Title = InputHelper.GetValidStringInputFromUser("Ange ny titel: ");
                             Console.WriteLine("Boken har uppdaterats.");
                             break;
                         case "2":
-                            Console.Write("Ange ny genre: ");
-                            book.Genre = Console.ReadLine()!;
+                            book.Genre = InputHelper.GetValidStringInputFromUser("Ange ny genre: ");
                             Console.WriteLine("Boken har uppdaterats.");
                             break;
                         case "3":
@@ -139,8 +133,7 @@ namespace LibraryManagementSystemAdvanced.Classes
         }
         public void RemoveBook()
         {
-            Console.Write("Skriv vilken bok du vill ta bort: ");
-            string bookToRemove = Console.ReadLine()!;
+            string bookToRemove = InputHelper.GetValidStringInputFromUser("Skriv vilken bok du vill ta bort: ");
 
             bool bookFound = false;
 
@@ -178,8 +171,7 @@ namespace LibraryManagementSystemAdvanced.Classes
 
         public void AddReview()
         {
-            Console.Write("Ange titeln på boken du vill betygsätta: ");
-            string bookToReview = Console.ReadLine()!;
+            string bookToReview = InputHelper.GetValidStringInputFromUser("Ange titeln på boken du vill betygsätta: ");
 
             foreach (Book book in bookList)
             {

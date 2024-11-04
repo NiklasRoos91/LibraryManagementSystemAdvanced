@@ -16,11 +16,9 @@ namespace LibraryManagementSystemAdvanced.Classes
         }
         public void AddAuthor()
         {
-            Console.Write("Ange författarens namn: ");
-            string newName = Console.ReadLine()!;
+            string newName = InputHelper.GetValidStringInputFromUser("Ange författarens namn: ");
 
-            Console.Write("Ange författarens land: ");
-            string newCountry = Console.ReadLine()!;
+            string newCountry = InputHelper.GetValidStringInputFromUser("Ange författarens land: ");
 
             int newID = InputHelper.GetValidIntegerInputFromUser("Ange ID (heltal): ");
 
@@ -43,9 +41,8 @@ namespace LibraryManagementSystemAdvanced.Classes
             }
         }
         public void UpdateAuthor()
-        {
-            Console.Write("Ange namnet på författaren du vill uppdatera: ");
-            string authorToUpdate = Console.ReadLine()!;
+        {            
+            string authorToUpdate = InputHelper.GetValidStringInputFromUser("Ange namnet på författaren du vill uppdatera: ");
 
             bool authorFound = false;
 
@@ -55,7 +52,6 @@ namespace LibraryManagementSystemAdvanced.Classes
                 {
                     authorFound = true;
 
-                    // Visa alternativ för vad som ska uppdateras
                     Console.WriteLine("Vad vill du uppdatera?");
                     Console.WriteLine("1. Namn");
                     Console.WriteLine("2. Land");
@@ -67,13 +63,11 @@ namespace LibraryManagementSystemAdvanced.Classes
                     switch (option)
                     {
                         case "1":
-                            Console.Write("Ange nytt namn: ");
-                            author.Name = Console.ReadLine()!;
+                            author.Name = InputHelper.GetValidStringInputFromUser("Ange nytt namn: ");
                             Console.WriteLine("Författaren har uppdaterats.");
                             break;
                         case "2":
-                            Console.Write("Ange nytt land: ");
-                            author.Country = Console.ReadLine()!;
+                            author.Country = InputHelper.GetValidStringInputFromUser("Ange nytt land: ");
                             Console.WriteLine("Författaren har uppdaterats.");
                             break;
                         case "3":
@@ -93,8 +87,7 @@ namespace LibraryManagementSystemAdvanced.Classes
         }
         public void RemoveAuthor()
         {
-            Console.Write("Skriv vilken författare du vill ta bort: ");
-            string authorToRemove = Console.ReadLine()!;
+            string authorToRemove = InputHelper.GetValidStringInputFromUser("Skriv vilken författare du vill ta bort: ");
 
             bool authorFound = false;
 
